@@ -30,7 +30,7 @@ export default async function wtnsCalculate(input, wasmFileName, wtnsFileName, o
 
     const wc = await WitnessCalculatorBuilder(wasm);
     if (wc.circom_version() == 1) {
-        const w = await wc.calculateBinWitness(input);
+        const w = await wc.calculateBinWitness(input, true);
 
         const fdWtns = await binFileUtils.createBinFile(wtnsFileName, "wtns", 2, 2);
 
